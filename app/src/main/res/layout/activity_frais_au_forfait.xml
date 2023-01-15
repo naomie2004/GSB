@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FraisAuForfait">
+
+    <include layout="@layout/entete"></include>
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:padding="8dp"
+        android:text="Frais au forfait"
+        android:layout_marginBottom="16dp"
+        android:textColor="#2E41AA"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:id="@+id/typeforfait"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:padding="4dp"
+        android:text="Type du forfait :"
+        android:textColor="#0A0A0B"
+        android:textSize="20sp"
+         />
+
+    <Spinner
+        android:id="@+id/type_forfait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E41AA"
+        android:entries="@array/typeForfait"
+         />
+
+    <TextView
+        android:labelFor="@+id/quantite"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:padding="4dp"
+        android:text="Quantité :"
+        android:textColor="#0A0A0B"
+        android:textSize="20sp"
+        />
+
+    <EditText
+        android:id="@+id/quantite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="8"
+        android:hint="Quantité"
+        android:minHeight="48dp"
+        android:textSize="10sp">
+
+    </EditText>
+    <TextView
+        android:id="@+id/somme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="somme"></TextView>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:labelFor="@+id/DateFrais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:padding="4dp"
+        android:text="Date :"
+        android:textColor="#0A0A0B"
+        android:textSize="20sp"
+         />
+
+    <EditText
+        android:id="@+id/DateFrais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:hint="format JJ/MM/AAAA"
+        android:inputType="date"
+        android:minHeight="48dp" />
+    <ImageView
+        android:id="@+id/imgcal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@drawable/calendrier" />
+</LinearLayout>
+</LinearLayout>

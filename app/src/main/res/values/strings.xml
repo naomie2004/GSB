@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">GSB</string>
+    <string-array name="typeForfait">
+        <item></item>
+        <item> Forfait étape </item>
+        <item> Frais kilométriques </item>
+        <item> Nuitées hôtels </item>
+        <item> Repas restaurants </item>
+        <item>Petits déjeuners </item>
+    </string-array>
+
+    <string-array name="valeurForfait">
+        <item>0</item>
+        <item>75</item>
+        <item>2.5</item>
+        <item>50</item>
+        <item>20</item>
+        <item>12.5</item>
+    </string-array>
+</resources>

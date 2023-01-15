@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+<include layout="@layout/entete"></include>
+
+    <TextView
+        android:id="@+id/main_textview_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="8dp"
+        android:text="Menu"
+        android:textColor="#2E41AA"
+        android:textSize="30sp"
+         />
+
+    <Button
+        android:id="@+id/main_button_fraisauforfait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E41AA"
+        android:fontFamily="sans-serif-black"
+        android:onClick="click_Menu"
+        android:text="Frais au forfait"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp">
+
+    </Button>
+
+    <Button
+        android:id="@+id/main_button_fraishorsforfait"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E41AA"
+        android:fontFamily="sans-serif-black"
+        android:onClick="click_Menu"
+        android:text="Frais hors forfait"
+        android:textSize="20sp">
+
+    </Button>
+
+    <Button
+        android:id="@+id/main_button_synthesedumois"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E41AA"
+        android:fontFamily="sans-serif-black"
+        android:onClick="click_Menu"
+        android:text="Synthèse du mois"
+        android:textSize="20sp">
+
+    </Button>
+
+    <Button
+        android:id="@+id/main_button_parametres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E41AA"
+        android:fontFamily="sans-serif-black"
+        android:onClick="click_Menu"
+        android:text="Paramètres"
+        android:textSize="20sp">
+
+    </Button>
+    <Button
+        android:id="@+id/connexion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#2E41AA"
+        android:fontFamily="sans-serif-black"
+        android:onClick="click_Menu"
+        android:text="connexion"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        >
+
+    </Button>
+
+
+</LinearLayout>
