@@ -57,10 +57,10 @@
         android:id="@+id/mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="4dp"
         android:backgroundTint="#2E41AA"
         android:hint="nao@gmail.com"
-        tools:ignore="TouchTargetSizeCheck"></EditText>
+        android:minHeight="48dp"
+        android:padding="4dp"></EditText>
 
 
     <Button
@@ -75,11 +75,7 @@
         android:text="Envoyer"
         android:textColor="#FFFFFF"
         android:textSize="15sp"
-        android:onClick="click_code"
-        tools:ignore="OnClick">
-
-
-    </Button>
+        android:onClick="click_code" />
     <TextView
         android:labelFor="@+id/codealeatoire"
         android:layout_width="wrap_content"
@@ -97,16 +93,16 @@
     android:visibility="invisible"
     android:id= "@+id/layout">
     <EditText
-        android:id="@+id/code"
+        android:id="@+id/codeverif"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
         android:backgroundTint="#2E41AA"
         android:hint="Entrez le code reçu"
-        tools:ignore="TouchTargetSizeCheck"></EditText>
+        />
 
     <Button
-        android:id="@+id/mdpoublie"
+        android:id="@+id/valider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -114,8 +110,8 @@
         android:fontFamily="sans-serif-black"
         android:text="Valider"
         android:textColor="#2E41AA"
-        android:textSize="10sp">
+        android:onClick="valide_code"
+        android:textSize="10sp" />
 
-    </Button>
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>

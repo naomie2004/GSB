@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#2E41AA"
         android:entries="@array/typeForfait"
-         />
+        android:minHeight="48dp" />
 
     <TextView
         android:labelFor="@+id/quantite"
@@ -97,5 +97,18 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         app:srcCompat="@drawable/calendrier" />
+
+
 </LinearLayout>
+    <Button
+        android:id="@+id/boutonajouter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#FFFFFF"
+        android:fontFamily="sans-serif-black"
+        android:text="Ajouter"
+        android:textColor="#2E41AA"
+        android:onClick="MonClick"
+        android:textSize="10sp" />
 </LinearLayout>
