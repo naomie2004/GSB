@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class SQLHelper extends SQLiteOpenHelper {
     //declaration des variables
     public static final String DB_NAME = "GSB.db";
@@ -54,6 +57,8 @@ public class SQLHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL(CREATE_TABLE);
+        sqLiteDatabase.execSQL(CREATE_PARAMETRES);
+        sqLiteDatabase.execSQL(INIT_PARAMETRES);
     }
 
 
@@ -95,48 +100,10 @@ public class SQLHelper extends SQLiteOpenHelper {
 
     }
 
-    private SQLiteDatabase Sql;
-
-       /* public void close() {
-            if (SQLHelper != null) {
-                SQLHelper.close();
-            }
-        }*/
-
-    public long createFrais(String code, String Type_Forfait,
-                            String Quantite, String date) {
-
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(ID_FRAIS, code);
-        initialValues.put(TYPEFRAIS, Type_Forfait);
-        initialValues.put(QUANTITE, Quantite);
-        initialValues.put(DATEFRAIS, date);
-
-        return Sql.insert(DB_TABLE, null, initialValues);
-    }
-    public SQLHelper open() throws SQLException {
-
-        SQLiteDatabase db =this.getWritableDatabase();
-        return this;
-
-    }
-
-    public boolean deleteAllFrais() {
-
-        int doneDelete = 0;
-        doneDelete = Sql.delete(DB_TABLE, null , null);
-        Log.w(TAG, Integer.toString(doneDelete));
-        return doneDelete > 0;
-
-    }
-
-
-
-
     public Cursor fetchAllFrais() {
-
-        Cursor mCursor = Sql.query(DB_TABLE, new String[] {ID_FRAIS,
-                        TYPEFRAIS, QUANTITE, DATEFRAIS},
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor mCursor = db.query(DB_TABLE, new String[] { "rowid _id",DATEFRAIS,
+                        MONTANT, DATESAISIE ,LIBELLE,ID_FRAIS},
                 null, null, null, null, null);
 
         if (mCursor != null) {
@@ -144,30 +111,74 @@ public class SQLHelper extends SQLiteOpenHelper {
         }
         return mCursor;
     }
+    public Cursor fetchFrais(String filtre) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor mCursor = db.query(DB_TABLE, new String[] { "rowid _id",DATEFRAIS,
+                        MONTANT, DATESAISIE ,LIBELLE},
+                filtre, null, null, null, null);
 
-    public void insertSomeFrais() {
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
 
-        createFrais("01585686","Petit dejeuné", "5", "01/01/2017");
-        createFrais("01456895","Nuité Hotel", "20", "01/03/2017");
-        createFrais("01514578","Nuité Hotel", "15", "01/04/2017");
-        createFrais("01531586","Forfait etape", "6", "26/01/2017");
-        createFrais("01467983","Repas restaurant", "2", "29/01/2017");
-        createFrais("01245876","Petit dejeuné", "4", "07/09/2017");
-        createFrais("01542571","Forfait etape", "17", "16/05/2017");
+
+    public SQLHelper open() throws SQLException {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return this;
+
+    }
+
+    public boolean Update_Data(Integer Codev , String Nom , String Prenom, String Mail , String Urlserveur,String Password) {
+        //on cree une variable de type sqLitedatabase pr pouvoir y acceder
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("codev", Codev);
+        contentValues.put("nom", Nom );
+        contentValues.put("prenom", Prenom);
+        contentValues.put("email", Mail);
+        contentValues.put("urlserveur", Urlserveur);
+        if (Password.toString().trim().length() > 0) {
+            String hashedPassword = SQLHelper.hashPassword(Password.toString());
+            contentValues.put("password", Password);
+
+        }
+        //insert sert a inserer des donnees, elle insere ds notre table contentValue les contenus
+        // des variables que l'utilisateur renseigne
+        long result = db.update("PARAMETRES",contentValues,"id=1",null);
+        return result != -1;
 
     }
 
 
-    public Cursor fetchFrais(String filtre) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor Cursor = db.query(DB_TABLE, new String[]{"rowid _id",LIBELLE,
-                        ID_FRAIS, DATEFRAIS, DATESAISIE, MONTANT, QUANTITE},
-                filtre, null, null, null, null);
 
-        if (Cursor != null) {
-            Cursor.moveToFirst();
+    /**
+     * //fonction qui hache un mot de passe.
+     * @param Password
+     * @return
+     */
+    public static String hashPassword(String Password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(Password.getBytes());
+            byte[] bytes = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(String.format("%02x", b));
+            }
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
         }
-        return Cursor;
+    }
+
+    public boolean deleteData(Integer ID_FRAIS){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long result = db.delete(DB_TABLE, "ID_FRAIS=" + ID_FRAIS, null);
+
+        return result != -1;
     }
 
 }

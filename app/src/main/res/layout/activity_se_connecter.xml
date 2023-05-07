@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".se_connecter">
 
     <include layout="@layout/entete"></include>
     <TextView
@@ -39,7 +39,7 @@
         android:layout_marginLeft="20dp"
         android:backgroundTint="#2E41AA"
         android:hint="Ex: 123456"
-        tools:ignore="TouchTargetSizeCheck">
+        >
 
     </EditText>
     <TextView
@@ -110,8 +110,9 @@
         android:fontFamily="sans-serif-black"
         android:text="Valider"
         android:textColor="#2E41AA"
-        android:onClick="valide_code"
-        android:textSize="10sp" />
+        android:onClick="Valide_code"
+        android:textSize="10sp"
+         />
 
     </LinearLayout>
 </LinearLayout>

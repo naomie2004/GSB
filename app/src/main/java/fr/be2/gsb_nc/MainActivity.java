@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     Context context;
     private static final String MON_FICHIER = "GSB_PREF_USER";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,12 +59,6 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this,se_connecter.class);
             startActivity(intent);
         }}
-
-    public void valide_code(View view) {
-    }
-
-    public void click_code(View view) {
-    }
 
     public void afficherMessage(String titre, String message){
         AlertDialog.Builder builder=new AlertDialog.Builder(this); //classe qui constuit une boite de dialogue
