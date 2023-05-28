@@ -60,17 +60,31 @@ public class FraisAuForfait extends MainActivity {
     public void Monclick(View v){
         switch (v.getId()){
             case R.id.boutonajouter:
-
-                // if (quantité.getText().toString().trim().length() == 0 || typeForfait.getSelectedItem().toString().length() ==0)
-
-        }
-        Integer quantite = Integer.parseInt(String.valueOf(quantité.getText()));
-        String forfait = typeForfait.getSelectedItem().toString();
-        montantCalcule = quantite * Float.parseFloat(mSomme.getText().toString());
-        String madateforfait = datefrais.getText().toString();
-        if (database.insertData(forfait, quantite, madateforfait, montantCalcule, forfait)) {
-            afficherMessage("Succès", "Valeur ajoutée. " + "Montant= " + montantCalcule);
-            return;
+                if (quantité.getText().toString().trim().length() == 0 || typeForfait.getSelectedItem().toString().length() == 0
+                        || datefrais.getText().toString().trim().length() == 0) {
+                    //teste si le champ quantite est renseigné ou si le champ type n'est pas vide
+                    // et qu'on a selectionne l'une des 4 possibilités et si la date est renseignée
+                    afficherMessage("Erreur!", "Champ vide");
+                    return;
+                }else if (datefrais.getText().toString().trim().length()>10 || datefrais.getText().toString().trim().length()<8 ) {
+                    //test sur la validité du champ date
+                    afficherMessage("Erreur!", "Date invalide");
+                    return;
+                } else if (Integer.parseInt(quantité.getText().toString())<1){ //teste si la quantite est au moins 1
+                    afficherMessage("Erreur!", "Quantité invalide");
+                    return;
+                }else {
+                    Integer quantite = Integer.parseInt(String.valueOf(quantité.getText()));
+                    String forfait = typeForfait.getSelectedItem().toString();
+                    String dateForfait = datefrais.getText().toString();
+                    int posForfait = typeForfait.getSelectedItemPosition();
+                    montantCalcule= quantite * Float.parseFloat(valeurs[posForfait]);
+                    if (database.insertData(forfait, quantite, dateForfait, montantCalcule, forfait)) {
+                        afficherMessage("Succès", "Valeur ajoutée. " + "Montant= " + montantCalcule +"€");
+                        return;
+                    }
+                }
+                break;
         }
 
     }

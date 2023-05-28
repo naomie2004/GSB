@@ -1,4 +1,5 @@
 package fr.be2.gsb_nc;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,8 +27,9 @@ public class se_connecter extends MainActivity {
         setContentView(R.layout.activity_se_connecter);
         codeVisiteur = findViewById(R.id.connectercv);
         email = findViewById(R.id.email);
-        verification = findViewById(R.id.layout);
+        verification = findViewById(R.id.layout1);
         codeVerif = findViewById(R.id.codeverif);
+        getSharedPreferences("PreferencesName", Context.MODE_PRIVATE).edit().clear().commit();
 
     }
 
@@ -38,7 +40,6 @@ public class se_connecter extends MainActivity {
         codeAleatoire = r.nextInt((max - min) + 1) + min;
         Toast.makeText(this, "code=" + codeAleatoire.toString(), Toast.LENGTH_SHORT).show();
         verification.setVisibility(View.VISIBLE);
-
     }
 
     public void Valide_code(View v) {

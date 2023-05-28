@@ -50,13 +50,13 @@
     </Button>
 
     <Button
-        android:id="@+id/main_button_synthesedumois"
+        android:id="@+id/consulterfrais"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="#2E41AA"
         android:fontFamily="sans-serif-black"
         android:onClick="click_Menu"
-        android:text="Synthèse du mois"
+        android:text="Consulter les frais"
         android:textSize="20sp">
 
     </Button>
@@ -81,10 +81,7 @@
         android:onClick="click_Menu"
         android:text="connexion"
         android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        >
-
+        android:textSize="20sp">
     </Button>
-
 
 </LinearLayout>

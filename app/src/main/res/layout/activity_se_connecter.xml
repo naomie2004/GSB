@@ -43,7 +43,7 @@
 
     </EditText>
     <TextView
-        android:labelFor="@id/mail"
+        android:labelFor="@id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
@@ -54,7 +54,7 @@
          />
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#2E41AA"
@@ -91,7 +91,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:visibility="invisible"
-    android:id= "@+id/layout">
+    android:id= "@+id/layout1">
     <EditText
         android:id="@+id/codeverif"
         android:layout_width="wrap_content"

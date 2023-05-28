@@ -9,11 +9,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Intent intent;
     EditText codevisiteur;
     Context context;
+    TextView bonjour;
     private static final String MON_FICHIER = "GSB_PREF_USER";
 
     @Override
@@ -26,24 +28,20 @@ public class MainActivity extends AppCompatActivity {
         String msg= "";
         switch (v.getId()){
             case R.id.main_button_fraisauforfait:
-               // msg= "bouton frais forfait";
                 intent = new Intent(MainActivity.this, FraisAuForfait.class);
                 break;
             case R.id.main_button_fraishorsforfait:
-                //msg= "bouton frais hors forfait";
                 intent = new Intent(MainActivity.this, FraisHorsForfait.class);
                 break;
-            case R.id.main_button_synthesedumois:
-                //msg= "synthèse du mois";
-                intent = new Intent(MainActivity.this, synthese_mois.class);
+            case R.id.consulterfrais:
+                intent = new Intent(MainActivity.this, consulter_frais.class);
                 break;
             case R.id.main_button_parametres:
-                //msg= "paramètres";
                 intent = new Intent(MainActivity.this, parametres.class);
                 break;
             case R.id.connexion:
                 intent= new Intent(MainActivity.this,se_connecter.class);
-                context.getSharedPreferences("PreferencesName", Context.MODE_PRIVATE).edit().clear().commit();
+
                 break;
      }
         startActivity(intent);
@@ -53,12 +51,13 @@ public class MainActivity extends AppCompatActivity {
     public void fermer(View v){
         this.finish();
     }
+
     public void secure(){
         String cvisiteur= getSharedPreferences("GSB_PREF_USER", MODE_PRIVATE).getString("CodeVisiteur","pas authentifie");
         if (cvisiteur.equals("pas authentifie")) {
             Intent intent = new Intent(MainActivity.this,se_connecter.class);
-            startActivity(intent);
-        }}
+            startActivity(intent);        }
+    }
 
     public void afficherMessage(String titre, String message){
         AlertDialog.Builder builder=new AlertDialog.Builder(this); //classe qui constuit une boite de dialogue
@@ -68,7 +67,4 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
 
     }
-
-
-
 }

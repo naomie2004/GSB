@@ -6,135 +6,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".parametres">
 
-    <include layout="@layout/entete"></include>
+    <include layout="@layout/entete"/>
 
     <TextView
+        android:labelFor="@+id/TV_Parametres"
         android:layout_width="wrap_content"
-        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Paramètres"
-        android:textColor="#2E41AA"
-        android:textSize="20sp"
-         />
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="80dp"
+        android:text="Parametres"
+        android:textColor="#0D3C0D"
+        android:textSize="40dp" />
 
     <TextView
-        android:layout_width="250dp"
+        android:labelFor="@+id/TV_E_mail3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:padding="8dp"
-        android:text="Email :"
-        android:textColor="#0A0A0B"
-        android:textSize="15sp"></TextView>
-
+        android:padding="10dp"
+        android:text="E-mail"
+        android:textColor="#243103"
+        android:textSize="19dp" />
     <EditText
-        android:id="@+id/main_edittext_quantite"
+        android:id="@+id/EMAIL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="#E9FDB7"
+        android:hint=""
+        android:textColor="#2E41AA" />
+    <TextView
+        android:labelFor="@+id/codev"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#2E41AA"
-        android:hint="Ex: sarah@gmail.com"
-        android:inputType="textEmailAddress"
-        tools:ignore="TouchTargetSizeCheck">
-
-    </EditText>
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:padding="8dp"
-        android:text="Code du visiteur : "
-        android:textColor="#0A0A0B"
-        android:textSize="15sp"
-         />
-
+        android:padding="10dp"
+        android:text="Code Visiteur :"
+        android:textColor="#243103"
+        android:textSize="19dp" />
     <EditText
-        android:id="@+id/main_edittext_prenom"
+        android:id="@+id/CODEV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="#E9FDB7"
+        android:hint=""
+        android:textColor="#2E41AA" />
+
+    <TextView
+        android:labelFor="@+id/TV_Nom2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#2E41AA"
-        android:hint="Ex: 12345"
-        tools:ignore="TouchTargetSizeCheck">
-
-    </EditText>
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:padding="8dp"
+        android:padding="10dp"
         android:text="Nom :"
-        android:textColor="#0A0A0B"
-        android:textSize="15sp"
-        />
-
+        android:textColor="#243103"
+        android:textSize="19dp" />
     <EditText
-        android:id="@+id/main_edittext_email"
+        android:id="@+id/NOM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="#E9FDB7"
+        android:hint=""
+        android:textColor="#2E41AA" />
+    <TextView
+        android:labelFor="@+id/TV_Prenom2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#2E41AA"
-        android:hint="Ex: Dupont"
-        tools:ignore="TouchTargetSizeCheck">
-
-    </EditText>
-    <TextView
-        android:id="@+id/main_textview_mdp"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:padding="8dp"
-        android:text="Prénom :"
-        android:textColor="#0A0A0B"
-        android:textSize="15sp"
-         />
-
+        android:padding="10dp"
+        android:text="Prenom :"
+        android:textColor="#243103"
+        android:textSize="19dp" />
     <EditText
-        android:id="@+id/main_edittext_mdp"
+        android:id="@+id/PRENOM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp"
+        android:background="#E9FDB7"
+        android:hint=""
+        android:textColor="#2E41AA" />
+    <TextView
+        android:labelFor="@+id/TV_Url"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#2E41AA"
-        android:hint="Sarah"
-        tools:ignore="TouchTargetSizeCheck">
-
-    </EditText>
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:padding="8dp"
-        android:text="URL serveur :"
-        android:textColor="#0A0A0B"
-        android:textSize="15sp"
-        />
-
+        android:padding="10dp"
+        android:text="Url"
+        android:textColor="#243103"
+        android:textSize="19dp" />
     <EditText
-        android:id="@+id/main_edittext_cv"
-        android:layout_width="100dp"
+        android:id="@+id/URLSERVEUR"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#2E41AA"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"></EditText>
+        android:padding="4dp"
+        android:background="#E9FDB7"
+        android:hint=""
+        android:textColor="#2E41AA" />
 
-    <TextView
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+
+
+    <Button
+        android:id="@+id/boutonconfirmer"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#2E41AA"
         android:fontFamily="sans-serif-black"
-        android:padding="8dp"
-        android:text="Mot de passe :"
-        android:textColor="#0A0A0B"
+        android:text="Confirmer"
+        android:textColor="#FFFFFF"
         android:textSize="15sp"
-         />
-
-    <EditText
-        android:id="@+id/main_edittext_motdepasse"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#2E41AA"
-        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"></EditText>
+        android:onClick="MonClickParam" />
 
 </LinearLayout>

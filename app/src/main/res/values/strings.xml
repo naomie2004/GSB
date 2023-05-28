@@ -6,7 +6,7 @@
         <item> Frais kilométriques </item>
         <item> Nuitées hôtels </item>
         <item> Repas restaurants </item>
-        <item>Petits déjeuners </item>
+        <item> Petits déjeuners </item>
     </string-array>
 
     <string-array name="valeurForfait">

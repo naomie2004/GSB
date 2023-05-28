@@ -92,10 +92,11 @@
         android:hint="format JJ/MM/AAAA"
         android:inputType="date"
         android:minHeight="48dp" />
-    <ImageView
+    <ImageButton
         android:id="@+id/imgcal"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:onClick="ShowCal"
         app:srcCompat="@drawable/calendrier" />
 
 
@@ -109,6 +110,6 @@
         android:fontFamily="sans-serif-black"
         android:text="Ajouter"
         android:textColor="#2E41AA"
-        android:onClick="MonClick"
+        android:onClick="Monclick"
         android:textSize="10sp" />
 </LinearLayout>
